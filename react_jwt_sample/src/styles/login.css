@@ -1,0 +1,52 @@
+.login-box{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    border: 2px solid rgb(21, 153, 120);
+    padding: 8px;
+    border-radius: 5px;
+
+}
+
+.login-box h2 {
+    font-family: cursive;
+    color:  rgb(21, 153, 120)
+}
+
+.text-box{
+    margin: 8px 0;
+    padding:2px;
+    border: 1px solid  rgb(21, 153, 120);
+}
+
+.text-box i{
+    padding: 5px;
+    
+}
+
+.text-box input{
+    border: none;
+    margin: 0 5px;
+    cursor: pointer;
+    outline: none;border-radius: 5px;
+    font-family: cursive;
+    color:  rgb(21, 153, 120);
+    
+    
+}
+
+.button{
+    color: rgb(21, 153, 120);
+    background-color: white;    
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    font-family: cursive;
+}
+
+.button:hover{
+    box-shadow: 0 0 0 1px  rgb(21, 153, 120);
+}
+

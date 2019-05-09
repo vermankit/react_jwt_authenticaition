@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import '../styles/login.css';
 
 const Login = (props) => {
     const [username, setUsername] = useState("");
@@ -10,20 +10,20 @@ const Login = (props) => {
         console.log(username + ' ' + password);
     }
 
-    return    <div className="container">
-                <form onSubmit={HandleSubmit}>
-                    <h1>Login Page</h1>
-                    <div className="text">
-                        <label>Username</label>
-                        <input type='text' onChange={({ target }) => setUsername(target.value)}></input>
-                    </div>
-                    <div className="">
-                        <label>Password</label>
-                        <input type='password' onChange={({ target }) => setPassword(target.value)}></input>
-                    </div>
-                    <button className="button"type="submit" >sign in </button>
-                </form>
+    return <div className="login-box">
+        <form onSubmit={HandleSubmit}>
+            <h2>Sign in</h2>
+            <div className="text-box">
+                <i className="fa fa-user"></i>
+                <input type='text' placeholder="Username" onChange={({ target }) => setUsername(target.value)}></input>
             </div>
+            <div className="text-box">
+                <i className="fa fa-lock" />
+                <input type='password' placeholder="Password" onChange={({ target }) => setPassword(target.value)}></input>
+            </div>
+            <button className="button" type="submit" >Sign in </button>
+        </form>
+    </div>
 
 }
 
