@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../styles/login.css';
+import { AuthenticateService } from '../services/authenticate.service.js'
 
 const Login = (props) => {
     const [username, setUsername] = useState("");
@@ -8,6 +9,7 @@ const Login = (props) => {
     let HandleSubmit = function (e) {
         e.preventDefault();
         console.log(username + ' ' + password);
+        AuthenticateService.authenticate(username, password);
     }
 
     return <div className="login-box">
