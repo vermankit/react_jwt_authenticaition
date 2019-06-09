@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -11,12 +11,12 @@ using System.Text;
 
 namespace api.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/auth/[controller]")]
     [ApiController]
     [Authorize]
-    public class UsersController : ControllerBase
+    public class AuthenticateController : ControllerBase
     {
-        // GET api/values        
+        [AllowAnonymous]
         [HttpPost("authenticate")]                
         public IActionResult Authenticate()
         {
