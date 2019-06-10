@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
+using api.Entities;
 using api.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -27,6 +30,21 @@ namespace api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            var appSettingSection = Configuration.GetSection("AppSettings");
+            services.Configure<AppSettings>(appSettingSection);
+            
+            var appSettings = appSettingSection.Get<AppSettings>();
+            var key = Encoding.UTF8.GetBytes(appSettings.Secret);
+
+            services.AddAuthentication( options => 
+            {
+              options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+              options.DefaultChallengeScheme  = JwtBearerDefaults.AuthenticationScheme;
+
+
+            });
+
             services.AddScoped<IUserService,UserServices>();
         }
 

@@ -11,17 +11,17 @@ using System.Text;
 
 namespace api.Controllers
 {
-    [Route("api/auth/[controller]")]
+    [Route("api/[controller]")]
     [ApiController]
     [Authorize]
     public class AuthenticateController : ControllerBase
     {
         [AllowAnonymous]
-        [HttpPost("authenticate")]                
-        public IActionResult Authenticate()
+        [HttpPost]                
+        public IActionResult Authenticate(string username,string password)
         {
             var claims = new[] {new Claim(ClaimTypes.Name,"ankit")};
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("abcd"));
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("abcduiigeiugeiufguiefgifgefiefg"));
             var signingCredential = new SigningCredentials(key,SecurityAlgorithms.HmacSha256Signature);
             var token = new JwtSecurityToken (
               issuer: "mysite.com",
@@ -33,7 +33,7 @@ namespace api.Controllers
 
             var tokenHandler = new JwtSecurityTokenHandler().WriteToken(token);
             
-            return Ok(token);
+            return Ok(tokenHandler);
         }       
     }
 }
