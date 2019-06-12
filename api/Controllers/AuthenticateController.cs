@@ -55,7 +55,6 @@ namespace api.Controllers
               claims: claims,
               signingCredentials: signingCredential
             );
-
             var tokenHandler = new JwtSecurityTokenHandler().WriteToken(token);
             return tokenHandler;
         }
