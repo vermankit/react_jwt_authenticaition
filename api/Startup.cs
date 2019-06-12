@@ -32,11 +32,11 @@ namespace api
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
-            // var appSettingSection = Configuration.GetSection("AppSettings");
-            // services.Configure<AppSettings>(appSettingSection);
+            var appSettingSection = Configuration.GetSection("AppSettings");
+            services.Configure<AppSettings>(appSettingSection);
             
-            // var appSettings = appSettingSection.Get<AppSettings>();
-            var key =Encoding.UTF8.GetBytes("abcduiigeiugeiufguiefgifgefiefg");
+            var appSettings = appSettingSection.Get<AppSettings>();
+            var key =Encoding.UTF8.GetBytes(appSettings.Secret);
            
             services.AddAuthentication( options => 
             {
