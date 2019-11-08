@@ -23,6 +23,7 @@ const Login = (props) => {
                 <i className="fa fa-lock" />
                 <input type='password' placeholder="Password" onChange={({ target }) => setPassword(target.value)}></input>
             </div>
+       
             <button className="button" type="submit" >Sign in </button>
         </form>
     </div>
